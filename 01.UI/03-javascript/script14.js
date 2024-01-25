@@ -24,3 +24,11 @@ const printAge = ({name,dob}) => {
 
 printAge(c1);
 
+//Restructured assignment
+
+let eid = 101;
+let ename = "Vamsy";
+let basicPay=45000;
+
+let emp = {eid,ename,basicPay};
+console.log(emp);

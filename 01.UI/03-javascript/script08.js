@@ -4,7 +4,7 @@ let emp1 = {id:101,name:"Vamsy",sal:45600,ta:()=>this.sal*0.2};
 console.log(emp1);
 console.log(emp1.ta());
 
-//constructor functions: a function that accepts proeprties and assigns them onto 'this'
+//constructor functions: a function that accepts properties and assigns them onto 'this'
 
 const Employee = function(id,name,sal){
     this.id=id;
