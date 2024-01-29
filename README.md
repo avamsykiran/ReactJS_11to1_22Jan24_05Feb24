@@ -143,5 +143,79 @@ ReactJS
 
         JSX is a html embeded JavaScript.
 
+        .js
+
+            let myPara = docuemtn.createElement("p");
+            myPara.innerText = "Hello! this si a para";
+
+            let friends = ["Vamsy","Rahul",'Shrma","Avinash"];
+
+            let myList = document.createElement("ol");
+            for(let i=0;i<friends.length;i++){
+                let myLI = document.createElement("li");
+                myLI.innerText = friends[i];
+                myList.append(myLI);
+            })
+
+        .jsx
+
+            let myPara = <p>Hello! this is a para</p>;
+
+            let friends = ["Vamsy","Rahul",'Shrma","Avinash"];
+
+            let myList =  ( 
+                <ol>
+                    {  friends.map( f => <li>{f}</li> ) }    
+                </ol> 
+            );
 
 
+        JSX Rules
+
+            1. JSX is case sensitive
+            2. use all html in lower case only 
+            3. any react components are expected to be initial capitals.
+            4. attribute name shoudl follwo camelCase
+            5. 'class' is not a valid attribute as it is a keyword in JavaScript and use 'className'
+                instead.
+
+            
+    state, render(), setState()
+
+        state is the field inehreted from React.Component and is used
+        to hold all the data the component needs to work with. state whenever
+        gets modified, will invoke the 'render()' and updates the html-content on the
+        screen.
+
+        state is immutable. (we can not change any part of the state).
+
+        state is always replaced using 'setState()' method.
+
+        'setState()' is going accept full or partial state.
+
+    Working With Forms
+
+        Controlled Form Component
+
+            Each input element of a form is attached to a 'ref' variable.
+
+            a 'ref' variable is a variable created outside the component state.
+
+            whenever the form is submitted, we ahve collecte data from all the 'ref' 
+            varaibles .
+
+            'ref' variables are very costly on the memory and they actually have]
+            a different purpose.
+
+        UnControlled Form Component
+
+            Each input element is attached to a field in the 'state'.
+
+            As state is immutable, the input fields are not editable.
+
+            We will use onChange event of the input field to receve the new value
+            into the respective state field.
+
+            When the form is submitted, the data is already inside the state.
+
+            This ensures 'single source of thruth'.
