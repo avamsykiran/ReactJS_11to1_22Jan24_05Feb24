@@ -1,7 +1,7 @@
 
-const Header = () => (
+const Header = ({appTitle}) => (
     <header>
-        <h3>ReactJS Demo APP 1.0</h3>
+        <h3>{appTitle??"UnNamed"}</h3>
     </header>
 );
 

@@ -5,9 +5,9 @@ import Counter from "./components/Counter";
 
 const App = () => (
   <Fragment>
-    <Header />
+    <Header appTitle="React JS SPA 1.0" />
     <Counter />
-    <Friends />
+    <Friends initialFriends={["Vamsy","Sagar"]} />
   </Fragment>
 );
 

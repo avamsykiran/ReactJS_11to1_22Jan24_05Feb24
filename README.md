@@ -218,4 +218,19 @@ ReactJS
 
             When the form is submitted, the data is already inside the state.
 
-            This ensures 'single source of thruth'.
+            This ensures 'single source of truth'.
+
+    ReactJS props
+
+        'props' stand for proeprties is used to ship data from parent ot child or vice-versa.
+
+        a parent component can pass data through attributes of a child component.
+        And a child component can access that data through 'props'
+
+    Integrating Bootstrap with ReactJS
+
+        npm i bootstrap
+
+        import bootstrap.bundle JS and bootstrap.min.css CSS file into index.js
+
+    

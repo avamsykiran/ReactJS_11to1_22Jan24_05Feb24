@@ -1,12 +1,10 @@
 import { Component } from 'react';
 
 class Friends extends Component {
-    constructor() {
-        super();
+    constructor({initialFriends}) {
+        super({initialFriends});
         this.state = {
-            friends: [
-                "Vamsy", "Sagar", "Suseela", "Suresh", "Dileep", "Girish"
-            ],
+            friends: [...initialFriends],
             friendName: ''
         };
     }
