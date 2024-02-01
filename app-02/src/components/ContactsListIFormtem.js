@@ -3,15 +3,30 @@ import { Component } from 'react';
 class ContactsListFormItem extends Component {
 
     constructor({contact,save,cancelEdit}){
-        super({save});
+        super({contact,save,cancelEdit});
         this.state = contact ? {...contact} : this.initData();
     }
 
     initData = () => ({ id: 0, name: "", dob: new Date().toISOString().substring(0,10), mail: "", mobile: "" })
 
     saveBtnClicked = e => {
-        this.props.save({...this.state});
-        this.setState(this.initData());
+        
+        let contact = {...this.state};
+
+        let err = [];
+
+        if(!contact.name || contact.name.trim().length==0){
+            err.push("Name can not be empty");
+        }
+
+        //add err msgs to err array after doing all other validations...
+
+        if(err && err.length>0){
+            window.alert(err);
+        }else{
+            this.props.save(contact);
+            this.setState(this.initData());
+        }
     };
 
     cancelBtnClicked = e => {

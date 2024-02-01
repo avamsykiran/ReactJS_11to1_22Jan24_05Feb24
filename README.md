@@ -233,4 +233,38 @@ ReactJS
 
         import bootstrap.bundle JS and bootstrap.min.css CSS file into index.js
 
-    
+    Shadow DOM / Virtual DOM
+
+        is a temporary DOM copy maintaiend by React.
+        any rendering will resutl in regerating the ShadowDom first and this is
+        very less costly as it is not directky linked to the browser rendering.
+
+        After the entire Shadow DOM is regenerated, it is compred with the actual DOM
+        and the differecnes are identified and then the actual dom is
+        managed to suite the differences. Thus it is less costly tan regeneraing the entire
+        actual DOM.
+
+        "key" is an attribute that is expected to have unique value for each record is
+        used to compare records from showdow dom with records on actual dom.
+
+    Class Component Life cycle Methods
+
+        constructor()               //initilizing state
+            ↓
+        render()                    //generate and return the html-dom
+            ↓
+        componentDidMount()         //execute any task immidiately after the first-render()
+
+                /***************************************************************/
+        |-----→        any sort of event handling can happen
+        |               as a part of it 'setState()' may get called
+        |       /***************************************************************/
+        |                        setState() is if invoked
+        |                           ↓
+        |                        render()               //generate and return the html-dom
+        |                           ↓
+        |                       componentDidUpdate()    //executeing any tasks after each render()
+        |                           ↓
+        -----------------------------                                    
+
+    React Hooks

@@ -50,10 +50,12 @@ class ContactsList extends Component {
                 {contacts && contacts.length > 0 && contacts.map(c => (
                     c.isEditing ?
                         <ContactsListFormItem 
+                            key={c.id}
                             contact={c}
                             save={this.updateContact}
                             cancelEdit={this.unmarkEditiing} /> :
                         <ContactsListItem 
+                            key={c.id}
                             contact={c} 
                             delContact={this.delContact}
                             markEditiing={this.markEditiing} />
