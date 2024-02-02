@@ -268,3 +268,29 @@ ReactJS
         -----------------------------                                    
 
     React Hooks
+
+        A react hook is a pure function that provides additional enchancement to a function componenet.
+
+        a hook must be invoekd in the top-most liens of code of a function component.
+
+        useState Hook
+
+            let [reader,writer] = useState(fieldInitialValue);
+
+            example:
+                let [empId,setEmpId] = useState(101);
+                let [fullName,setFullName] = useState("Vamsy");
+                let [skills,setSkills] = useState(["java","angular","reactjs"]);
+                let [address,setAddress] = useState({flatNo:9015,area:"MVV City",city:"Visakhapatnam"});
+
+        useEffect Hook
+
+            useEffect(() => {},[]);
+                the callBack is equivalent to componentDidMount(), the callBack is executed only once that too
+                after the first render of the component.
+
+            useEffect(() => {},[field1,field2,...]);
+                the callBack is equivalent to componentDidUpdate(), the callBack is executed after every render of the component but only when any of the fields in the dependency array had their values changed.
+
+            useEffect(() => {});
+                the callBack executes unconditionally after every render.
