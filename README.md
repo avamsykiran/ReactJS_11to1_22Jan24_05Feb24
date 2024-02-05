@@ -294,3 +294,17 @@ ReactJS
 
             useEffect(() => {});
                 the callBack executes unconditionally after every render.
+
+    React Hook form
+
+        npm i react-hook-form
+
+        useForm({defaultValues}); return an object that has
+            a register method
+            a handleSubmit method
+            a setValue method
+            a reset method
+            a formState: {errors} to pick errors
+
+        
+    
