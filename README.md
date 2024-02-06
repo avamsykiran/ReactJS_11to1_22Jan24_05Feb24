@@ -306,5 +306,5 @@ ReactJS
             a reset method
             a formState: {errors} to pick errors
 
-        
+    
     
