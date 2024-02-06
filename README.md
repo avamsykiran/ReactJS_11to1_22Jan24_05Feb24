@@ -306,5 +306,79 @@ ReactJS
             a reset method
             a formState: {errors} to pick errors
 
-    
+    State Management Using redux and react redux.
+
+        npm i redux react-redux 
+
+        redux is a state managment library that can handle state centrally and isolatedly
+        for an app.
+
+            store           is a global object that has all the data/state of the application.
+                            an app has one and only one store.
+
+                            let myStore = createStore(myReducer);
+
+            reducer         is a user defiend pure javascript function. it takes the currentState and
+                            an action as params and returns the modifeid state.
+
+                            const myReducer = (state,action) => {
+
+                                //based on the action, state is modified
+
+                                return modifiedState;
+                            }
+
+            action          is a object that has a payload and an action type.
+                            'type' is the operation to be executed,
+                            'payload' is the data needed for the operation to take place.
+
+                            const action1 = {type:"ADD",emp};
+                            const action2 = {type:"REMOVE",empId:101};
+
+            dispatch        is a built-in method used by a component to send an action to the reducer.
+
+                            dispatch(action1);
+
+        react-redux is the integration library for redux into react.
+
+            <Provider></Provider>
+
+                is used to wrap the store on to the top-level-component of our Application.
+
+                    <Provider store={myStore}>
+                        <App />
+                    </Provider>
+
+            useSelector()
+
+                is a hook that is used to select only the requried part of the global state
+                into our component.
+
+                let emps = useSelector( state => state.emps );
+                let empsCount = useSelector( state => state.emps.length );
+
+            useDispatch()
+
+                is going return a 'dispatch' method related to the current store.
+
+                const dispatch = useDispatch();
+
+        Using these libraries, we can elimate state management from components.
+
+        store (all state) →------------------------------------------
+        ↑                               |                           |
+        |                               ↓                           ↓
+        |                               |                           |
+        |                               useSelector()              useSelector() 
+        |                               ↓                           ↓ 
+        |                               Component1              Component2
+        |                               |                           |
+        |                               | dispatch = useDispatch()  | 
+        |                               | dispatch(action)          | dispatch = useDispatch()
+        |                               |                           | dispatch(action)
+        ↑                               |                           |
+        | modifedState                  ↓                           ↓
+        reducer ←----------------------------------------------------
+
+
     
