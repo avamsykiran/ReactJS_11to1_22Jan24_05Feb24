@@ -1,6 +1,10 @@
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import { createAddContactAction, createReplaceContactAction,createUnMarkContactEditbleAction} from "../state/actions";
 
-const ContactsListFormItem = ({ contact, save, cancelEdit }) => {
+const ContactsListFormItem = ({ contact }) => {
+
+    const dispatch = useDispatch();
 
     let { register,
         reset,
@@ -9,8 +13,12 @@ const ContactsListFormItem = ({ contact, save, cancelEdit }) => {
             defaultValues: contact ?? { id: 0, name: "", dob: new Date().toISOString().substring(0, 10), mail: "", mobile: "" }
         });
 
-    const formSubmitted = data => { save(data); reset(); };
-    const cancelBtnClicked = e => ( contact ? cancelEdit(contact.id) : reset());
+    const formSubmitted = data => { 
+        contact ? dispatch(createReplaceContactAction(data)) : dispatch(createAddContactAction(data)); 
+        reset(); 
+    };
+    
+    const cancelBtnClicked = e => ( contact ? dispatch(createUnMarkContactEditbleAction(contact.id)) : reset());
 
     return (
         <form className='row border-bottom border-primary p-2' onSubmit={handleSubmit(formSubmitted)}>
@@ -52,7 +60,7 @@ const ContactsListFormItem = ({ contact, save, cancelEdit }) => {
                     </div>
                 }
             </div>
-            <div className='col-2'>
+            <div className='col-2 text-center'>
                 <button type="submit" className="btn btn-sm btn-primary me-1">
                     SAVE
                 </button>
