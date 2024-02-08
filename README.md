@@ -363,7 +363,7 @@ ReactJS
 
                 const dispatch = useDispatch();
 
-        Using these libraries, we can elimate state management from components.
+        Using these libraries, we can eliminate state management from components.
 
         store (all state) →------------------------------------------
         ↑                               |                           |
@@ -376,9 +376,82 @@ ReactJS
         |                               | dispatch = useDispatch()  | 
         |                               | dispatch(action)          | dispatch = useDispatch()
         |                               |                           | dispatch(action)
+        |                               |                           |
         ↑                               |                           |
         | modifedState                  ↓                           ↓
-        reducer ←----------------------------------------------------
+        reducer ←-----------------------←---------------------------←
 
+    Fake Rest-Api using json-server
 
+        md contacts-api
+        cd contacts-api
+        npm init -y
+        npm i json-server@0.17.4
+
+        create a contacts-api/data.json and populate it with hypothetical data
+        modify contacts-api/package.json file to put "start":"json-server --port 9999 --watch ./data.json"
+
+        npm start
+
+    Rest-Api calls using axios
+
+        npm i axios
+
+        axios.get(endPoint) returns Promise
+        axios.delete(endPoint) returns Promise
+        axios.post(endPoint,reqBody) returns Promise
+        axios.put(endPoint,reqBody) returns Promise
+
+    Thunk Middleware to handle asynchronous calls
+
+        npm i redux-thunk
+
+        Generally action are objects 
+        But a thunkAction is a function that sits between component and reducer and
+        keeps dispatching action objects to the reducer alongside an asynchronous call.
+
+        store (all state) →------------------------------------------
+        ↑                               |                           |
+        |                               ↓                           ↓
+        |                               |                           |
+        |                               useSelector()              useSelector() 
+        |                               ↓                           ↓ 
+        |                               Component1              Component2
+        |                               |                           |
+        |                               | dispatch = useDispatch()  | 
+        |                               | dispatch(action)          | dispatch = useDispatch()
+        |                               |                           | dispatch(thunkAction)
+        |                               |                           |
+        ↑                               |                           ↓
+        | modifedState                  ↓         -------[Thunk Action Function]------    
+        reducer | ←---------------------←         |                                  |
+                | ←-------------------------------|    dispatch(waitActionObj)       |
+                |                                 |    axiosCall                     |
+                | ←-------------------------------|    ifOK, dispatch(dataActionObj) |
+                | ←-------------------------------|    ifERR, dispatch(errActionObj) |
+                                                  |                                  |
+                                                  ------------------------------------
     
+    React Routing
+
+        npm i react-router react-router-dom --save
+
+            <BrowserRouter>
+
+                <Header />
+
+                <Routes>
+                    <Route path="/" element={<C1 />} />
+                    <Route path="/a" element={<C2 />} />
+                    <Route path="/b" element={<C3 />} />
+                    <Route path="/c/:pathVariable" element={<C4 />} />
+                </Routes>
+
+                <Footer />
+
+            </BrowserRouter>
+
+
+            <Link to"" ></Link>       instead of <a></a>
+
+            <Navigate to="" />  

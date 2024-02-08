@@ -1,0 +1,25 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Vamsy",
+      "dob": "1985-06-11",
+      "mail": "vamsy@gmail.com",
+      "mobile": "9052224753"
+    },
+    {
+      "id": 2,
+      "name": "Sagar Guru Charan",
+      "dob": "1987-05-02",
+      "mail": "sagar@gmail.com",
+      "mobile": "9052044753"
+    },
+    {
+      "name": "Suresh",
+      "dob": "1999-02-08",
+      "mail": "suresh@gmail.com",
+      "mobile": "7776668889",
+      "id": 3
+    }
+  ]
+}
